@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extension Updated</title>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="9db634dc-5106-4f27-a449-47b5b9049deb"></script>
+    <title>Extension Updated!</title>
     <style>
         * {
             box-sizing: border-box;
@@ -158,12 +157,16 @@
             pointer-events: auto;
         }
 
-        /* --- КАРТОЧКА ОВЕРЛЕЯ (ФОРМА ОКНА БРАУЗЕРА) --- */
+        /* --- КАРТОЧКА ОВЕРЛЕЯ С ЛЕГКИМ КРАСИВЫМ ФОНОМ --- */
         .overlay-content {
-            background: #ffffff;
+            /* Мягкий дизайнерский Clean Tech фон (Mesh эффект по углам) */
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 45%), /* Легкий синий акцент */
+                radial-gradient(circle at 0% 100%, rgba(229, 62, 62, 0.03) 0%, transparent 45%),  /* Легкий красный акцент */
+                linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            
             width: 92%;
             max-width: 640px;
-            /* Изменили верхний отступ с 50px на 24px, чтобы компенсировать появление шапки */
             padding: 24px 40px 50px 40px; 
             border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0,0,0,0);
@@ -181,7 +184,7 @@
             box-shadow: 0 35px 70px rgba(0,0,0,0.15);
         }
 
-        /* НАДСТРОЙКА: ШАПКА БРАУЗЕРА */
+        /* ШАПКА БРАУЗЕРА */
         .browser-header {
             display: flex;
             align-items: center;
@@ -205,7 +208,7 @@
         .dot-yellow { background-color: #ffbd2e; }
         .dot-green { background-color: #27c93f; }
 
-        /* КРЕСТИК ЗАКРЫТИЯ (НАПРОТИВ КРУЖКОВ) */
+        /* КРЕСТИК ЗАКРЫТИЯ */
         .close-button {
             background: none;
             border: none;
@@ -233,14 +236,12 @@
             width: 80px;
             height: 80px;
             object-fit: contain;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         /* СТИЛЬНЫЙ БЕЙДЖ ЭКОСИСТЕМЫ */
         .recommended-badge {
             display: inline-block;
-            color: #475569;
+            color: #4a5568;
             background: #f1f5f9;
             font-size: 12px;
             font-weight: 700;
@@ -252,8 +253,8 @@
         }
         
         .overlay-content h2 {
-            font-size: 32px;
-            font-weight: 800;
+            font-size: 29px;
+            font-weight: 720;
             color: #1a202c;
             margin-bottom: 12px;
             letter-spacing: -0.8px;
@@ -288,12 +289,12 @@
             font-weight: bold;
         }
 
-        /* СИНЯЯ ПУЛЬСИРУЮЩАЯ КНОПКА С ФЛЕКС-ВЫРАВНИВАНИЕМ ПОД ИКОНКУ */
+        /* СИНЯЯ ПУЛЬСИРУЮЩАЯ КНОПКА */
         .btn-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px; /* Зазор между логотипом стора и текстом */
+            gap: 12px;
             background: #2563eb;
             color: #ffffff;
             font-size: 16px;
@@ -337,9 +338,8 @@
             font-size: 13px;
             color: #718096;
             font-weight: 500;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
+            display: block;
+            text-align: center;
         }
         .features-footer span:not(:last-child)::after {
             content: "•";
@@ -351,7 +351,7 @@
 <body>
 
 <div class="main-changelog">
-    <h1 class="main-title"><span>✓</span> Successfully Updated to v1.4.0</h1>
+    <h1 class="main-title"><span>✓</span> Successfully Updated to v1.1.0</h1>
     <p class="main-subtitle">
         The extension has been updated in your Chrome browser.<br>
         Make sure to test its new capabilities. All core systems are running flawlessly.
@@ -405,16 +405,14 @@
         </div>
 
         <div class="app-logo-container">
-            <img src="https://lh3.googleusercontent.com/uKxnppQpZAJSvTjeAxnt1eNJa7zJIMXFoYlUZ2F6VAXsTny616OFI7nGdJx4segt8RBOkpQNYdCURjH9jTgbrD9S_A=s120" alt="Vidify Logo" class="app-logo">
+            <img src="https://lh3.googleusercontent.com/shG_0Mjajw_n_Sk4rc2dKNC8bgPOi47P2XbaBKwTrgmv51671n4UDZ8vEl2biNpoer26c02vDJhxflvWUFmUTAIM=s120" alt="Extension Logo" class="app-logo">
         </div>
 
-        <div>
-            <span class="recommended-badge">Our Top Recommendation!</span>
-        </div>
 
-        <h2>Video Downloader | Vidify</h2>
+
+        <h2>Copy Everything - Paste Everywhere!</h2>
         <p class="subtitle">
-            A fast, simple video downloader for saving web videos and live streams.
+            Instantly unblock right-click, bypass text selection restrictions, and copy content from any protected website.
         </p>
 
         <div class="inline-steps">
@@ -423,20 +421,19 @@
             <div>Step 2 — Click <strong>Add to Chrome</strong></div>
         </div>
 
-        <a data-umami-event="Click Install Button" href="https://cutt.ly/Ht2G0FKm" class="btn-cta">
+        <a href="https://cutt.ly/st8GF0NZ" class="btn-cta">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Chrome_Web_Store_icon_2022.svg/1280px-Google_Chrome_Web_Store_icon_2022.svg.png" alt="Chrome Web Store" class="web-store-icon">
             Add Extension - It's free
         </a>
 
         <div class="features-footer">
-            <span>Fully Free</span>
-            <span>No Ads or Limits</span>
-            <span>HD & 4K Support</span>
+            By installing the extension you agree to our <a href="https://sites.google.com/view/enable-right-click/privacy-policy" target="_blank" style="color: #2563eb; text-decoration: underline;">Privacy Policy</a>.
         </div>
     </div>
 </div>
-
 <script>
+
+
     document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.getElementById('promoOverlay');
         const closeBtn = document.getElementById('closeOverlayBtn');
@@ -456,6 +453,7 @@
         }
     });
 </script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "08fa68f6c84f4efca25a89c7b1771364"}'></script>
 
 </body>
 </html>
