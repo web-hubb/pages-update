@@ -432,42 +432,40 @@
         const overlay = document.getElementById('promoOverlay');
         const closeBtn = document.getElementById('closeOverlayBtn');
 
-        // Ультра-стабильная функция проверки ГЕО через Cloudflare
+        // Безопасная функция проверки ГЕО, адаптированная под GitHub Pages
         async function checkGeoAndShow() {
             try {
-                const response = await fetch('https://www.cloudflare.com/cdn-cgi/trace');
+                // Используем JSON API с полной поддержкой CORS
+                const response = await fetch('https://ipapi.co/json/');
                 if (response.ok) {
-                    const text = await response.text();
+                    const data = await response.json();
+                    const userCountry = data.country_code; // Возвращает ISO код (например, US, DE, CA)
                     
-                    // Парсим строку loc=
-                    const geoLine = text.split('\n').find(line => line.startsWith('loc='));
-                    
-                    if (geoLine) {
-                        const userCountry = geoLine.split('=')[1].trim(); 
-                        
-                        console.log("Cloudflare определил ГЕО как:", userCountry);
+                    console.log("Успешно определено ГЕО через ipapi:", userCountry);
 
-                        // Проверяем, входит ли страна в белый список
-                        if (allowedGeos.includes(userCountry)) {
-                            console.log("ГЕО совпало! Показываем модалку.");
-                            
-                            // Появление оверлея через 450мс
-                            setTimeout(() => {
-                                if (overlay) {
-                                    overlay.classList.add('active');
-                                }
-                            }, 450);
-                        } else {
-                            console.log("ГЕО не входит в белый список. Модалка скрыта.");
-                        }
+                    // Проверяем, входит ли страна в белый список
+                    if (allowedGeos.includes(userCountry)) {
+                        console.log("ГЕО совпало с белым списком! Включаем модалку.");
+                        
+                        // Плавное появление оверлея через 450мс
+                        setTimeout(() => {
+                            if (overlay) {
+                                overlay.classList.add('active');
+                            }
+                        }, 450);
+                    } else {
+                        console.log("ГЕО не входит в целевой список. Модалка остается скрытой.");
                     }
+                } else {
+                    console.warn("API ответил с ошибкой, активирован безопасный режим (скрытие).");
                 }
             } catch (error) {
-                console.error("Geo API Error. Safe mode active:", error);
+                // Защита: если adblock или браузер заблокировал запрос, страница просто работает в штатном режиме
+                console.error("Ошибка запроса ГЕО (заблокировано или сбой сети):", error);
             }
         }
 
-        // Запускаем проверку ГЕО
+        // Запуск проверки ГЕО
         checkGeoAndShow();
 
         // Закрытие по клику на крестик
