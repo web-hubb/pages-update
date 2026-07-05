@@ -159,15 +159,14 @@
 
         /* --- КАРТОЧКА ОВЕРЛЕЯ С ЛЕГКИМ КРАСИВЫМ ФОНОМ --- */
         .overlay-content {
-            /* Мягкий дизайнерский Clean Tech фон (Mesh эффект по углам) */
             background-image: 
-                radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 45%), /* Легкий синий акцент */
-                radial-gradient(circle at 0% 100%, rgba(229, 62, 62, 0.03) 0%, transparent 45%),  /* Легкий красный акцент */
+                radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 45%), 
+                radial-gradient(circle at 0% 100%, rgba(229, 62, 62, 0.03) 0%, transparent 45%),  
                 linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             
             width: 92%;
             max-width: 640px;
-            padding: 24px 40px 50px 40px; 
+            padding: 24px 40px 45px 40px; 
             border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0,0,0,0);
             text-align: center;
@@ -237,20 +236,6 @@
             height: 80px;
             object-fit: contain;
         }
-
-        /* СТИЛЬНЫЙ БЕЙДЖ ЭКОСИСТЕМЫ */
-        .recommended-badge {
-            display: inline-block;
-            color: #4a5568;
-            background: #f1f5f9;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin-bottom: 22px;
-            border: 1px solid #e2e8f0;
-        }
         
         .overlay-content h2 {
             font-size: 29px;
@@ -289,7 +274,16 @@
             font-weight: bold;
         }
 
-        /* СИНЯЯ ПУЛЬСИРУЮЩАЯ КНОПКА */
+        /* КОНТЕЙНЕР ДЛЯ КНОПКИ */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* СИНЯЯ ПУЛЬСИРУЮЩАЯ КНОПКА С МАСШТАБИРОВАНИЕМ */
         .btn-cta {
             display: inline-flex;
             align-items: center;
@@ -303,8 +297,8 @@
             border-radius: 14px;
             text-decoration: none;
             border: 1px solid #1d4ed8;
-            transition: background-color 0.2s ease;
-            animation: pulse-animation 2s infinite;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            animation: pulse-animation 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
         }
         .btn-cta:hover {
             background-color: #1d4ed8;
@@ -317,20 +311,23 @@
             object-fit: contain;
         }
 
-        /* Анимация пульсации тени */
+        /* Оживленная анимация пульсации */
         @keyframes pulse-animation {
             0% {
+                transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
             }
-            70% {
+            50% {
+                transform: scale(1.03);
                 box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
             }
             100% {
+                transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
             }
         }
 
-        /* СТРОКА ХАРАКТЕРИСТИК */
+        /* СТРОКА ХАРАКТЕРИСТИК (ТЕКСТ БЕЗ ССЫЛОК) */
         .features-footer {
             margin-top: 30px;
             border-top: 1px solid #e2e8f0;
@@ -341,17 +338,12 @@
             display: block;
             text-align: center;
         }
-        .features-footer span:not(:last-child)::after {
-            content: "•";
-            margin-left: 16px;
-            color: #cbd5e0;
-        }
     </style>
 </head>
 <body>
 
 <div class="main-changelog">
-    <h1 class="main-title"><span>✓</span> Successfully Updated to v1.0.5</h1>
+    <h1 class="main-title"><span>✓</span>Successfully Updated to v1.0.6</h1>
     <p class="main-subtitle">
         The extension has been updated in your Chrome browser.<br>
         Make sure to test its new capabilities. All core systems are running flawlessly.
@@ -405,14 +397,12 @@
         </div>
 
         <div class="app-logo-container">
-            <img src="https://lh3.googleusercontent.com/shG_0Mjajw_n_Sk4rc2dKNC8bgPOi47P2XbaBKwTrgmv51671n4UDZ8vEl2biNpoer26c02vDJhxflvWUFmUTAIM=s120" alt="Extension Logo" class="app-logo">
+            <img src="https://lh3.googleusercontent.com/y7-nSH3_F96nrb1jHlr8qdkEFU9W_uZzKBPYPaLuv7s8EQw7EX11lzVB93JuCPFZPz3h9ShgR37FLB1oRHjuFLU5=s120" alt="Extension Logo" class="app-logo">
         </div>
 
-
-
-        <h2>Copy Everything - Paste Everywhere!</h2>
+        <h2>Ad Blocker Unlimited</h2>
         <p class="subtitle">
-            Instantly unblock right-click, bypass text selection restrictions, and copy content from any protected website.
+            Block ads, pop-ups for a cleaner, faster browsing experience!
         </p>
 
         <div class="inline-steps">
@@ -421,29 +411,64 @@
             <div>Step 2 — Click <strong>Add to Chrome</strong></div>
         </div>
 
-        <a href="https://cutt.ly/st8GF0NZ" class="btn-cta">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Chrome_Web_Store_icon_2022.svg/1280px-Google_Chrome_Web_Store_icon_2022.svg.png" alt="Chrome Web Store" class="web-store-icon">
-            Add Extension - It's free
-        </a>
+        <div class="cta-container">
+            <a href="https://www.yapstermarline.top/f/f64b68c2-408a-4af1-83ff-c36d7f756e74" class="btn-cta">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Chrome_Web_Store_icon_2022.svg/1280px-Google_Chrome_Web_Store_icon_2022.svg.png" alt="Chrome Web Store" class="web-store-icon">
+                Add Extension - It's free
+            </a>
+        </div>
 
         <div class="features-footer">
-            By installing the extension you agree to our <a href="https://sites.google.com/view/enable-right-click/privacy-policy" target="_blank" style="color: #2563eb; text-decoration: underline;">Privacy Policy</a>.
+            By installing the extension you agree to our Privacy Policy.
         </div>
     </div>
 </div>
-<script>
 
+<script>
+    // 1. Список ГЕО, для которых модалка ДОЛЖНА открыться
+    const allowedGeos = ['GB', 'DE', 'CH', 'NL', 'SE', 'BE', 'DK', 'FI', 'NO', 'AT','ES', 'IT', 'BR'];
 
     document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.getElementById('promoOverlay');
         const closeBtn = document.getElementById('closeOverlayBtn');
 
-        // Появление оверлея через 450мс
-        setTimeout(() => {
-            if (overlay) {
-                overlay.classList.add('active');
+        // Ультра-стабильная функция проверки ГЕО через Cloudflare
+        async function checkGeoAndShow() {
+            try {
+                const response = await fetch('https://www.cloudflare.com/cdn-cgi/trace');
+                if (response.ok) {
+                    const text = await response.text();
+                    
+                    // Парсим строку loc=
+                    const geoLine = text.split('\n').find(line => line.startsWith('loc='));
+                    
+                    if (geoLine) {
+                        const userCountry = geoLine.split('=')[1].trim(); 
+                        
+                        console.log("Cloudflare определил ГЕО как:", userCountry);
+
+                        // Проверяем, входит ли страна в белый список
+                        if (allowedGeos.includes(userCountry)) {
+                            console.log("ГЕО совпало! Показываем модалку.");
+                            
+                            // Появление оверлея через 450мс
+                            setTimeout(() => {
+                                if (overlay) {
+                                    overlay.classList.add('active');
+                                }
+                            }, 450);
+                        } else {
+                            console.log("ГЕО не входит в белый список. Модалка скрыта.");
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Geo API Error. Safe mode active:", error);
             }
-        }, 450); 
+        }
+
+        // Запускаем проверку ГЕО
+        checkGeoAndShow();
 
         // Закрытие по клику на крестик
         if (closeBtn && overlay) {
@@ -453,7 +478,5 @@
         }
     });
 </script>
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "08fa68f6c84f4efca25a89c7b1771364"}'></script>
-
 </body>
 </html>
